@@ -1,0 +1,53 @@
+=============== Feb 6, 2025 (EST) ===============
+19:09:08.605281 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:09:08.621341 db@open opening
+19:09:08.621967 version@stat F·[] S·0B[] Sc·[]
+19:09:08.627531 db@janitor F·2 G·0
+19:09:08.627543 db@open done T·6.180563ms
+19:10:42.189126 db@close closing
+19:10:42.189231 db@close done T·103.463µs
+=============== Feb 6, 2025 (EST) ===============
+19:10:57.566514 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:10:57.566613 version@stat F·[] S·0B[] Sc·[]
+19:10:57.566647 db@open opening
+19:10:57.566664 journal@recovery F·1
+19:10:57.566740 journal@recovery recovering @1
+19:10:57.573833 memdb@flush created L0@2 N·5 S·3KiB "/_l..ads,v5":"/_l..ads,v1"
+19:10:57.573981 version@stat F·[1] S·3KiB[3KiB] Sc·[0.25]
+19:10:57.595049 db@janitor F·3 G·0
+19:10:57.595061 db@open done T·28.410793ms
+19:16:28.536563 db@close closing
+19:16:28.536733 db@close done T·169.401µs
+=============== Feb 6, 2025 (EST) ===============
+19:16:44.813103 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:16:44.813195 version@stat F·[1] S·3KiB[3KiB] Sc·[0.25]
+19:16:44.813216 db@open opening
+19:16:44.813232 journal@recovery F·1
+19:16:44.813274 journal@recovery recovering @3
+19:16:44.814029 version@stat F·[1] S·3KiB[3KiB] Sc·[0.25]
+19:16:44.837695 db@janitor F·3 G·0
+19:16:44.837707 db@open done T·24.487787ms
+19:18:45.193600 db@close closing
+19:18:45.193745 db@close done T·144.037µs
+=============== Feb 6, 2025 (EST) ===============
+19:19:01.792955 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:19:01.793075 version@stat F·[1] S·3KiB[3KiB] Sc·[0.25]
+19:19:01.793099 db@open opening
+19:19:01.793119 journal@recovery F·1
+19:19:01.793157 journal@recovery recovering @5
+19:19:01.799705 memdb@flush created L0@7 N·1 S·1KiB "/_l..ads,v7":"/_l..ads,v7"
+19:19:01.799853 version@stat F·[2] S·5KiB[5KiB] Sc·[0.50]
+19:19:01.819956 db@janitor F·4 G·0
+19:19:01.819968 db@open done T·26.865429ms
+19:20:14.775908 db@close closing
+19:20:14.776122 db@close done T·213.558µs
+=============== Feb 6, 2025 (EST) ===============
+19:20:26.702264 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:20:26.702366 version@stat F·[2] S·5KiB[5KiB] Sc·[0.50]
+19:20:26.702395 db@open opening
+19:20:26.702424 journal@recovery F·1
+19:20:26.702768 journal@recovery recovering @8
+19:20:26.710532 memdb@flush created L0@10 N·1 S·1KiB "/_l..ads,v9":"/_l..ads,v9"
+19:20:26.711063 version@stat F·[3] S·6KiB[6KiB] Sc·[0.75]
+19:20:26.733515 db@janitor F·5 G·0
+19:20:26.733543 db@open done T·31.143423ms
