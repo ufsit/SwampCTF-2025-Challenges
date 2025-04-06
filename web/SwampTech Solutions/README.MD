@@ -4,34 +4,67 @@ SwampTech Solutions is a multi-step web challenge that ends in an XXE vulnerabil
 
 # Full Solution Writeup
 
-Visit the /login.php page
+### Step 1: Login Page
 
-Login with hardcoded credentials 
+Navigate to ```/login.php```
+
+Use the hardcoded credentials:
+
 ```
 guest:iambutalowlyguest
 ```
-You will be redirected to /dashboard.php
 
-Note that the cookie value is an MD5 hash. Cracking the hash will reveal it is a hash of the word "guest" 
-Change the cookie to the hash for "admin":
+You will be redirected to: ```/dashboard.php```
+
+---
+
+### Step 2: Cookie Manipulation
+
+Inspect the cookie value. It is an MD5 hash of the username.
+
+- `guest` → `084e0343a0486ff05530df6c705c8bb4`
+- `admin` → `21232f297a57a5a743894a0e4a801fc3`
+
+Update your cookie to the md5 hash of "admin":
+
 ```
 21232f297a57a5a743894a0e4a801fc3
 ```
-You should now be able to access the admin page at /adminpage.php
 
-Refresh the admin page and this time intercept the request in Burp
-Right click on the request > Do Intercept > Response to this Request
-Scroll through the response to the hidden obfuscated looking form
+Now you can access the admin page at ```/adminpage.php```
 
-Just delete the word "hidden" and forward the request
-You should now see the new inputs and form. Send whatever data through this form and intercept the request
+---
 
-Notice the data appears to be xml data in URL encoded form
-Upon sending the form, a response will appear that reflects the "name" parameter value back at the user.
+### Step 3: Finding the Hidden XML Form
 
-Replace the decoded data with the following XXE payload and hit apply changes: 
+- Open `/adminpage.php` and intercept the request using Burp Suite (or a similar web proxy).
+- Right-click the request and choose "Do Intercept > Response to this Request" to intercept and edit the response
+- In the intercepted response, scroll to locate the hidden, obfuscated form.
 
-```
+To reveal it:
+
+- Remove the `hidden` attribute from the `<form>` element.
+- Forward the request.
+
+The full form inputs will now be visible in the browser.
+
+---
+
+### Step 4: Submitting the Form
+
+1. Fill out the form and intercept the outgoing request.
+2. Observe that the form sends what appears to be XML data, which is URL-encoded.
+3. The server reflects the `<name>` parameter back in the response, suggesting that out of band exfiltration is unnecessary.
+
+This behavior points to a possible XXE vulnerability.
+
+---
+
+### Step 5: XXE Exploit
+
+Replace the decoded XML data with the following XXE payload:
+
+```xml
 <!DOCTYPE foo [
 <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=flag.txt">
 ]>
@@ -40,7 +73,20 @@ Replace the decoded data with the following XXE payload and hit apply changes:
     <email>emailhere</email>
 </root>
 ```
-(You must use a base64 php filter due to the fact that the flag itself contains characters that break the xml syntax)
 
-Forwarding this new request should get you the flag.txt string in base64
-Simply decode the base64 string to retrieve the flag
+Note: The `php://filter/convert.base64-encode` wrapper is used because the flag may contain characters that would otherwise break the XML syntax.
+
+---
+
+### Step 6: Retrieving the Flag
+
+- Send the payload through the form.
+- The server will respond with the contents of `flag.txt`, Base64-encoded.
+- Decode the Base64 string to reveal the flag.
+
+---
+
+## Notes
+
+- Make sure to properly URL-encode the XML payload as needed.
+- If something doesn’t render or process correctly, verify the structure of your request and try again.
