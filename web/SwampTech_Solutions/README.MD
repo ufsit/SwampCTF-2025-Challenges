@@ -90,7 +90,7 @@ Replace the decoded XML data with the following XXE payload:
 - The server will respond with the contents of `flag.txt`, Base64-encoded.
 - Decode the Base64 string to reveal the flag.
 
-<img src="images/Screenshot1.png" width="400" />
+<img src="images/Screenshot3.png" width="700" />
 
 ---
 
