@@ -50,7 +50,7 @@ To reveal it:
 
 The full form inputs will now be visible in the browser.
 
-![Hidden Form](images/screenshot1.png)
+![Hidden Form](images/Screenshot1.png)
 
 ---
 
@@ -80,7 +80,7 @@ Replace the decoded XML data with the following XXE payload:
 
 *Note: The `php://filter/convert.base64-encode` wrapper is used because the flag may contain characters that would otherwise break the XML syntax.*
 
-![XXE Payload](images/screenshot2.png)
+![XXE Payload](images/Screenshot2.png)
 
 ---
 
@@ -90,7 +90,7 @@ Replace the decoded XML data with the following XXE payload:
 - The server will respond with the contents of `flag.txt`, Base64-encoded.
 - Decode the Base64 string to reveal the flag.
 
-![Base64 Flag](images/screenshot3.png)
+![Base64 Flag](images/Screenshot3.png)
 
 ---
 
