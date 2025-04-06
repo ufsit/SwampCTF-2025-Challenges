@@ -2,6 +2,8 @@
 
 SwampTech Solutions is a multi-step web challenge that ends in an XXE vulnerability. Players will need to uncover hardcoded credentials in the login page, manipulate a hashed cookie value to escalate access, discover a hidden XML-based form, and ultimately exploit an XML External Entity vulnerability to retrieve the flag.
 
+---
+
 # Full Solution Writeup
 
 ### Step 1: Login Page
@@ -14,18 +16,18 @@ Use the hardcoded credentials:
 guest:iambutalowlyguest
 ```
 
-You will be redirected to: ```/dashboard.php```
+You will be redirected to ```/dashboard.php```
 
 ---
 
 ### Step 2: Cookie Manipulation
 
-Inspect the cookie value. It is an MD5 hash of the username.
+Inspect the cookie value. It is an MD5 hash of the username/role 'guest'.
 
 - `guest` → `084e0343a0486ff05530df6c705c8bb4`
 - `admin` → `21232f297a57a5a743894a0e4a801fc3`
 
-Update your cookie to the md5 hash of "admin":
+Update your cookie to the md5 hash of 'admin':
 
 ```
 21232f297a57a5a743894a0e4a801fc3
@@ -74,7 +76,7 @@ Replace the decoded XML data with the following XXE payload:
 </root>
 ```
 
-Note: The `php://filter/convert.base64-encode` wrapper is used because the flag may contain characters that would otherwise break the XML syntax.
+*Note: The `php://filter/convert.base64-encode` wrapper is used because the flag may contain characters that would otherwise break the XML syntax.*
 
 ---
 
