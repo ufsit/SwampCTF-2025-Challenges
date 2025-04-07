@@ -98,3 +98,8 @@ Replace the decoded XML data with the following XXE payload:
 
 - Make sure to properly URL-encode the XML payload as needed.
 - If something doesn’t render or process correctly, verify the structure of your request and try again.
+- The fix for /flag.txt being accessible without authentication (if cookies are removed) is not present in this version. This issue is caused because the application files rely on .htaccess rules for protection, which are effective under Apache but not applicable in the Docker environment, as it runs on Nginx. To apply similar protection under Nginx, you can edit the /etc/nginx/sites-available/default file after the Docker container starts, and add the following location block:
+```
+location = /flag.txt {
+    deny all;
+}```
