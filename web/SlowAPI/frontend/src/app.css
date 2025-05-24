@@ -1,0 +1,152 @@
+@import 'tailwindcss';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --swamp-green: #2c5e1a;
+  --swamp-dark: #0d2108;
+  --swamp-light: #8ab77d;
+  --swamp-water: #3a7d7b;
+  --swamp-mud: #5e4c29;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--swamp-light);
+  color: var(--swamp-dark);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--swamp-water);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--swamp-green);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--swamp-dark);
+}
+
+h1, h2, h3 {
+  color: var(--swamp-dark);
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.alert-info {
+  background-color: var(--swamp-water);
+  color: white;
+}
+
+.alert-warning {
+  background-color: var(--swamp-mud);
+  color: white;
+}
+
+.nav {
+  background-color: var(--swamp-dark);
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--swamp-light);
+}
+
+.footer {
+  background-color: var(--swamp-dark);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+}
+
+.construction {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.construction img {
+  max-width: 200px;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

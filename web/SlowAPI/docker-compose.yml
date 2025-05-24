@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: slowapi-backend
+    environment:
+      - FLAG=swampCTF{b3w4r3_th3_m1ddl3w4r3}
+    networks:
+      - slowapi-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: slowapi-frontend
+    ports:
+      - "43611:3000"
+    depends_on:
+      - backend
+    # Pass backend URL to nginx for proxying
+    environment:
+      - BACKEND_URL=http://backend:8000
+    networks:
+      - slowapi-network
+    restart: unless-stopped
+
+networks:
+  slowapi-network:
+    name: slowapi-network
